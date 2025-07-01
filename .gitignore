@@ -1,2 +1,11 @@
-.env
-node_modules/
+# Ignore node_modules in all folders
+
+**/node_modules/
+
+# Ignore build directories in React apps
+
+**/build/
+
+# Ignore environment variables
+
+**/.env
