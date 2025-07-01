@@ -14,13 +14,19 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+    "https://zerodhaclone-h89l.onrender.com",
+    "https://zerodhaclone-2-06kt.onrender.com",
+  ],
+  credentials: true
+));
 app.use(bodyParser.json());
 
 // app.get("/addHoldings", async(req,res) => {
 //   let tempHoldings = [
 //   {
-//     name: "BHARTIARTL",
+//     name: "BHARTIARTL",{
 //     qty: 2,
 //     avg: 538.05,
 //     price: 541.15,
