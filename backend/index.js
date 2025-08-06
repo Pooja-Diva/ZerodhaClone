@@ -14,7 +14,13 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(cors());
+app.use(cors( {
+    origin: [
+    "https://zerodhaclone-h89l.onrender.com",
+    "https://zerodhaclone-2-06kt.onrender.com",
+  ],
+  credentials: true
+}));
 app.use(bodyParser.json());
 
 // app.get("/addHoldings", async(req,res) => {
@@ -189,6 +195,10 @@ app.get("/allHoldings", async(req,res) => {
 app.get("/allPositions", async(req,res) => {
    let allPositions = await PositionsModel.find({});
    res.json(allPositions);
+});
+
+app.get("/", (req, res) => {
+  res.send("Backend is live 🚀");
 });
 
 app.post("/newOrder", async(req,res) => {
